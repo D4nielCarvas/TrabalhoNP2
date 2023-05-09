@@ -28,7 +28,8 @@ public class Adicional {
         this.especie = especie;
         this.peso_liquido = peso_liquido;
         this.peso_bruto = peso_bruto;
-        this.numeracao = numeracao;     
+        this.numeracao = numeracao; 
+        this.desconto = desconto;    
     }
 
    public int getId() {
@@ -61,7 +62,83 @@ public class Adicional {
 
    }
 
-   public void setCod(int cod) 
+   public void setCod(int cod) {
+
+          this.cod = cod;
+
+   }
+
+   public String getMarca() {
+
+          return this.marca;
+
+   }
+
+   public void setMarca(String marca) {
+
+          this.marca = marca;
+
+   }
+
+   public String getEspecie() {
+
+          return this.especie;
+
+   }
+
+   public void setEspecie(String especie) {
+
+          this.especie = especie;
+
+   }
+
+   public float getPeso_liquido() {
+
+          return this.peso_liquido;
+
+   }
+
+   public void setPesoliquido(float peso_liquido) {
+
+          this.peso_liquido = peso_liquido;
+
+   }
+
+   public float getPeso_bruto() {
+
+          return this.peso_bruto;
+
+   }
+
+   public void setPeso_bruto(float peso_bruto) {
+
+          this.peso_bruto = peso_bruto;
+
+   }
+
+   public long getNumerecao() {
+
+          return this.numeracao;
+
+   }
+
+   public void setNumeracao(long numeracao) {
+
+          this.numeracao = numeracao;
+
+   }
+
+   public double getDesconto() {
+
+          return this.desconto;
+
+   }
+
+   public void setDesconto(double desconto) {
+
+          this.desconto = desconto;
+          
+   }
     
     public ArrayList<Adicional> adicionalFaker(int times) {
         //fakers

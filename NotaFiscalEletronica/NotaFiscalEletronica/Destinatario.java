@@ -1,49 +1,39 @@
 package NotaFiscalEletronica;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
-import javax.management.StringValueExp;
 
 public abstract class Destinatario {
 
     private String nome;
-    private String endereco;
-    private String municipio;
-    private String bairro;
-    private String uf;
+    private Endereco endereco;
+    private Telefone telefone;
     private String data_emissao;
     private String data_saida;
     private String hora_saida;
-    private long fone;
     private long cpf;
-    private long cep;
-    private long insc_estadual;
-    ArrayList<Destinatario> destinatario;
+    ArrayList<Destinatario> destinatario = new ArrayList<Destinatario>();
 
 
     public Destinatario(){
 
     }
 
-    public Destinatario(String nome, String endereco, String municipio, String bairro, String uf,String data_emissao, String data_saida, String hora_saida, long fone, long cpf, long cep, long insc_estadual){
+    public Destinatario(String nome, String data_emissao, String data_saida, String hora_saida, long cpf, Endereco endereco, Telefone telefone){
        
         this.nome = nome;
-        this.endereco = endereco;
-        this.municipio = municipio;
-        this.bairro = bairro;
-        this.uf = uf;
         this.data_emissao = data_emissao;
         this.data_saida = data_saida;
         this.hora_saida = hora_saida;
-        this.fone = fone;
         this.cpf = cpf;
-        this.cep = cep;
-        this.insc_estadual = insc_estadual;
+        this.telefone = telefone;
+        this.endereco = endereco;
 
     }
 
     public String getNome(){
 
-        return this.nome = nome;
+        return this.nome;
 
     }
 
@@ -53,57 +43,9 @@ public abstract class Destinatario {
 
     }
 
-    public String getEndereco(){
-        
-        return this.endereco = endereco;
-
-    }
-
-    public void setEndereco(String endereco){
-
-        this.endereco = endereco;
-
-    }
-
-    public String getMunicipio(){
-
-        return this.municipio = municipio;
-
-    }
-
-    public void setMunicipio(String municipio){
-
-        this.municipio = municipio;
-        
-    }
-
-    public String getBairro(){
-
-        return this.bairro = bairro;
-
-    }
-
-    public void setBairro(String bairro){
-
-        this.bairro = bairro;
-
-    }
-
-    public String getUf(){
-
-        return this.uf = uf;
-
-    }
-
-    public void setUf(String uf){
-
-        this.uf = uf;
-
-    }
-
     public String getData_emissao(){
 
-        return this.data_emissao = data_emissao;
+        return this.data_emissao;
 
     }
 
@@ -115,7 +57,7 @@ public abstract class Destinatario {
 
     public String getData_saida(){
 
-        return this.data_saida = data_saida;
+        return this.data_saida;
 
     }
 
@@ -127,7 +69,7 @@ public abstract class Destinatario {
 
     public String getHora_saida(){
 
-        return this.hora_saida = hora_saida;
+        return this.hora_saida;
 
     }
 
@@ -137,21 +79,9 @@ public abstract class Destinatario {
 
     }
 
-    public long getFone(){
-
-        return this.fone = fone;
-
-    }
-
-    public void setFone(long fone){
-
-        this.fone = fone;
-
-    }
-
     public long getCpf(){
 
-        return this.cpf = cpf;
+        return this.cpf;
 
     }
 
@@ -161,35 +91,57 @@ public abstract class Destinatario {
 
     }
 
-    public long getCep(){
-        
-        return this.cep = cep;
+    public Endereco getEndereco() {
+
+        return this.endereco;
 
     }
 
-    public void setCep(long cep){
+    public void setEndereco(Endereco endereco) {
 
-        this.cep = cep;
-
-    }
-
-    public long getInsc_estadual(){
-        
-        return this.insc_estadual = insc_estadual;
+        this.endereco = endereco;
 
     }
 
-    public void setInsc_estadual(long insc_estadual){
+    public Telefone getTelefone() {
 
-        this.insc_estadual = insc_estadual;
+        return this.telefone;
 
     }
 
-    public ArrayList<Destinatario> destinatarioFaker(int times) {
-        destinatario = new ArrayList<>(destinatario);
-        for(int i = 1; i <= times; i++) {
-            String nome = new Nome(i, Integer.parseInt(String.valueOf(i) + String.valueOf(i)));
+    public void setTelefone(Telefone telefone) {
+
+        this.telefone = telefone;
+
+    }
+
+    public void entrar() {
+
+        System.out.print("Nome -> ");
+        setNome(leia.nextLine());
+
+        System.out.print("Data da emissão -> ");
+        setData_emissao(leia.nextLine());
+
+        System.out.print("Data de Saida -> ");
+        setData_saida(leia.nextLine());
+
+        System.out.print("Hora da Saida -> ");
+        setHora_saida(leia.nextLine());
+
+        while(true) {
+            system.out.print("CPF ->");
+            try {
+                setCpf(leia.nextLong());
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Erro ao cadastrar CPF.");
+                System.out.println("Tente novamente.");
+                leia.nextLine();
+            }
         }
+
+
     }
 
    
